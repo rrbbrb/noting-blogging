@@ -1,0 +1,202 @@
+/* HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+i,
+ul,
+li,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+footer,
+header,
+menu,
+nav,
+summary,
+time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Removing defaults */
+
+article,
+footer,
+header,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* For browsers without HTML5 support */
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+svg {
+  /*
+  For IE9. Without, occasionally draws shapes
+  outside the boundaries of <svg> rectangle.
+*/
+  overflow: hidden;
+}
+
+/* end of reset */
+
+html {
+  font-family: 'Noto Sans', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 3.5rem;
+  font-size: 3rem;
+}
+
+h2 {
+  font-weight: 400;
+  line-height: 3rem;
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-weight: 400;
+  line-height: 2.5rem;
+  font-size: 2rem;
+}
+
+h4 {
+  font-weight: 400;
+  line-height: 1.55rem;
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-weight: 200;
+  line-height: 120%;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 200;
+  line-height: 120%;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  color: #000000;
+  text-decoration: underline;
+}
+
+form {
+  margin: 2.8rem 0rem 1.2rem 0rem;
+}
+
+.form-group {
+  padding: 0.25rem 1rem 0.25rem 1rem;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+
+input[type="text"],
+input[type="password"],
+.form-control {
+  width: 284px;
+  height: 42px;
+  background: transparent;
+  border: 2px solid #000000;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #000000;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+.form-control:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn {
+  background-color: #000000;
+  color: #FFFFFF;
+  width: 240px;
+  margin: 1.8rem 1rem 0.8rem 1rem;
+  padding: 0.75rem 0rem 0.75rem 0rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 2px solid #000000;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.btn:focus {
+  box-shadow: none;
+}

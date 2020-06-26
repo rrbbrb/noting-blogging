@@ -1,0 +1,9 @@
+.navbar-brand {
+    margin-top: 0.85rem;
+    outline: none;
+}
+
+.nav-link {
+    margin: 0.55rem 0.3rem 0.55rem 0.3rem;
+    outline: none;
+}
