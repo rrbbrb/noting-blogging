@@ -1,0 +1,77 @@
+form {
+  padding-bottom: 4.2rem;
+}
+
+#cover-photo.form-control {
+  max-width: 428px;
+}
+
+#image-icon {
+  padding: 0;
+  margin: 0rem 0rem 0rem 0.4rem;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+img {
+  width: 48px;
+}
+
+.form-control {
+  width: 509px;
+  height: auto;
+}
+
+.btn {
+  width: 360px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 560px) {
+  .form-control {
+    width: 420px;
+    font-size: 90%;
+  }
+
+  #cover-photo.form-control {
+    max-width: 340px;
+  }
+
+  #image-icon {
+    margin-left: 0.2rem;
+  }
+
+  .btn {
+    width: 340px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  .form-control {
+    width: 380px;
+    font-size: 80%;
+  }
+
+  #cover-photo.form-control {
+    max-width: 301px;
+  }
+
+  #image-icon {
+    margin-left: 0rem;
+  }
+
+  img {
+    width: 43px;
+    margin-left: 0.25rem;
+  }
+
+  .btn {
+    width: 320px;
+  }
+}

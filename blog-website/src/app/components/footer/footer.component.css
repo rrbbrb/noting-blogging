@@ -1,5 +1,5 @@
 #footer {
-    padding: 3.5rem 0rem 1.8rem 0rem;
+    padding: 3.5rem 0rem 1.85rem 0rem;
 }
 
 h5 {
@@ -13,4 +13,5 @@ h5 {
 
 p {
     font-size: 50%;
+    line-height: 1.8;
 }

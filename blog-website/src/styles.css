@@ -121,6 +121,13 @@ h4 {
   font-size: 1.125rem;
 }
 
+h4 {
+  font-weight: 600;
+  line-height: 120%;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+}
+
 h5 {
   font-weight: 200;
   line-height: 120%;

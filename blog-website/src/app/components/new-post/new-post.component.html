@@ -1,0 +1,42 @@
+<form>
+
+  <div class="row justify-content-center">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title">
+    </div>
+  </div>
+
+  <div class="row justify-content-center" id="cover-photo-upload">
+    <div class="form-group">
+      <label for="cover-photo">Cover Photo</label>
+      <div class="row">
+        <div class="col-10">
+          <input type="text" class="form-control" id="cover-photo">
+        </div>
+        <div class="col-2">
+          <button id="image-icon">
+            <img src="../../../assets/images/upload-image.svg" alt="Upload cover photo">
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="form-group">
+      <label for="body-text">Body Text</label>
+      <textarea class="form-control" id="body-text" rows="22"></textarea>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="text-center">
+      <button type="submit" class="btn">Publish</button>
+      <p><a routerLink="/">Discard</a></p>
+    </div>
+  </div>
+
+</form>
