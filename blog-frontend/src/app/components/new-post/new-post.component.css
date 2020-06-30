@@ -1,3 +1,7 @@
+#view-container {
+  max-width: 509px;
+}
+
 form {
   padding-bottom: 4.2rem;
 }
@@ -73,5 +77,47 @@ a {
 
   .btn {
     width: 320px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .form-control {
+    width: 330px;
+    font-size: 80%;
+  }
+
+  #cover-photo.form-control {
+    max-width: 264px;
+  }
+
+  img {
+    width: 37px;
+    margin-left: 0rem;
+    margin-top: 0.185rem;
+  }
+
+  .btn {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .form-control {
+    width: 280px;
+    font-size: 76%;
+  }
+
+  #cover-photo.form-control {
+    max-width: 217px;
+  }
+
+  img {
+    width: 32px;
+    padding: 0;
+    margin-top: 0.2rem;
+  }
+
+  .btn {
+    width: 230px;
   }
 }

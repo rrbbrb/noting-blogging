@@ -2,3 +2,7 @@ p {
   font-weight: 500;
   margin-top: 0.5rem;
 }
+
+.form-control {
+  width: 284px;
+}

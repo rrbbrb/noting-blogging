@@ -169,7 +169,6 @@ label {
 input[type="text"],
 input[type="password"],
 .form-control {
-  width: 284px;
   height: 42px;
   background: transparent;
   border: 2px solid #000000;
