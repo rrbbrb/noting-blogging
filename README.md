@@ -1,2 +1,2 @@
 # noting-blogging
-Blog with Angular and SpringBoot
+Full-stack blog built with Angular and SpringBoot
