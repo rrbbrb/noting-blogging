@@ -1,5 +1,6 @@
 package io.github.rrbbrb.blogbackendjava.security;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -26,5 +27,15 @@ public class JwtProvider {
                 .setSubject(principal.getUsername())
                 .signWith(key)
                 .compact();
+    }
+
+    public boolean validateToken(String jwt) {
+        Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt);
+        return true;
+    }
+
+    public String getUsernameFromJwt(String jwt) {
+        Claims claims = Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(jwt).getBody();
+        return claims.getSubject();
     }
 }

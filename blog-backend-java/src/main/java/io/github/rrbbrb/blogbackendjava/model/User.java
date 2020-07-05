@@ -1,10 +1,13 @@
 package io.github.rrbbrb.blogbackendjava.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "posts"})
 public class User {
 
     @Id
