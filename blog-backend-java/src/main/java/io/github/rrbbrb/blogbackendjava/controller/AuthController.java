@@ -3,6 +3,7 @@ package io.github.rrbbrb.blogbackendjava.controller;
 import io.github.rrbbrb.blogbackendjava.dto.LogInRequest;
 import io.github.rrbbrb.blogbackendjava.dto.SignUpRequest;
 import io.github.rrbbrb.blogbackendjava.service.AuthService;
+import io.github.rrbbrb.blogbackendjava.service.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ public class AuthController {
     }
 
     @PostMapping("/log-in")
-    public String logIn(@RequestBody LogInRequest logInRequest) {
+    public AuthenticationResponse logIn(@RequestBody LogInRequest logInRequest) {
         return authService.logIn(logInRequest);
     }
 }

@@ -14,6 +14,11 @@ import { HomeComponent } from './components/home/home.component';
 import { FullPostComponent } from './components/full-post/full-post.component';
 import { PasswordResetComponent } from './components/login/password-reset/password-reset.component';
 import { ResetSuccessComponent } from './components/login/reset-success/reset-success.component';
+import { SignupSuccessComponent } from './components/login/signup-success/signup-success.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './service/auth/auth.service';
+import { NgxWebstorageModule } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [
@@ -28,13 +33,18 @@ import { ResetSuccessComponent } from './components/login/reset-success/reset-su
     HomeComponent,
     FullPostComponent,
     PasswordResetComponent,
-    ResetSuccessComponent
+    ResetSuccessComponent,
+    SignupSuccessComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

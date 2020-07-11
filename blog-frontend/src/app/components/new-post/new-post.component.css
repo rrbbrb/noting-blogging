@@ -6,7 +6,7 @@ form {
   padding-bottom: 4.2rem;
 }
 
-#cover-photo.form-control {
+#cover-photo-name.form-control {
   max-width: 428px;
 }
 
@@ -42,7 +42,7 @@ a {
     font-size: 90%;
   }
 
-  #cover-photo.form-control {
+  #cover-photo-name.form-control {
     max-width: 340px;
   }
 
@@ -62,7 +62,7 @@ a {
     font-size: 80%;
   }
 
-  #cover-photo.form-control {
+  #cover-photo-name.form-control {
     max-width: 301px;
   }
 
@@ -86,7 +86,7 @@ a {
     font-size: 80%;
   }
 
-  #cover-photo.form-control {
+  #cover-photo-name.form-control {
     max-width: 264px;
   }
 
@@ -107,7 +107,7 @@ a {
     font-size: 76%;
   }
 
-  #cover-photo.form-control {
+  #cover-photo-name.form-control {
     max-width: 217px;
   }
 

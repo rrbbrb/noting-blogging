@@ -14,8 +14,9 @@ public class Post {
     @Column(name = "title")
     private String title;
 
+    @Lob
     @Column(name = "cover_photo")
-    private String coverPhoto;
+    private byte[] coverPhoto;
 
     @Lob
     @Column(name = "body_text")
@@ -50,11 +51,11 @@ public class Post {
         this.title = title;
     }
 
-    public String getCoverPhoto() {
+    public byte[] getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(String coverPhoto) {
+    public void setCoverPhoto(byte[] coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 

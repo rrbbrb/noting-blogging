@@ -9,10 +9,12 @@ import { HomeComponent } from './components/home/home.component';
 import { FullPostComponent } from './components/full-post/full-post.component';
 import { PasswordResetComponent } from './components/login/password-reset/password-reset.component';
 import { ResetSuccessComponent } from './components/login/reset-success/reset-success.component';
+import { SignupSuccessComponent } from './components/login/signup-success/signup-success.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent },
+    { path: 'signup', component: SignupComponent, pathMatch: 'full' },
+    { path: 'signup-success', component: SignupSuccessComponent },
     { path: 'verification-link', component: VerificationLinkComponent },
     { path: 'verified', component: VerifiedComponent },
     { path: 'new', component: NewPostComponent },

@@ -8,7 +8,7 @@ public class PostDto {
 
     private Long Id;
     private String title;
-    private String coverPhoto;
+    private byte[] coverPhoto;
     private String bodyText;
     private User user;
     private LocalDateTime lastUpdated;
@@ -29,11 +29,11 @@ public class PostDto {
         this.title = title;
     }
 
-    public String getCoverPhoto() {
+    public byte[] getCoverPhoto() {
         return coverPhoto;
     }
 
-    public void setCoverPhoto(String coverPhoto) {
+    public void setCoverPhoto(byte[] coverPhoto) {
         this.coverPhoto = coverPhoto;
     }
 

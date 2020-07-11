@@ -1,20 +1,36 @@
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!isAuthenticated()">
   <div class="row justify-content-center">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" id="username">
+      <label for="input-username">Username</label>
+      <input type="text" class="form-control" id="input-username" [formControlName]="'username'">
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password">
+      <label for="input-password">Password</label>
+      <input type="password" class="form-control" id="input-password" [formControlName]="'password'">
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="text-center">
       <button type="submit" class="btn">Login</button>
-      <p>Don't have an account?  <a routerLink="/signup">Sign up</a></p>
+      <div class="sign-up-route">
+        <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+      </div>
     </div>
   </div>
 </form>
+
+<div *ngIf="isAuthenticated()">
+  <div class="row justify-content-center">
+    <h5>Do you want to sign out?</h5>
+  </div>
+  <div class="row justify-content-center">
+    <div class="text-center">
+      <button type="button" class="btn sign-out-route">Yes, sign me out</button>
+      <div class="cancel-route">
+        <p><a routerLink="/home">Cancel</a></p>
+      </div>
+    </div>
+  </div>
+</div>
