@@ -47,6 +47,4 @@ export class NewPostComponent implements OnInit {
     });
   }
 
-  // TODO: Discard button to navigate away and reset form
-
 }

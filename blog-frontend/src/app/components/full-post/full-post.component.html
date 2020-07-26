@@ -2,7 +2,7 @@
   <div class="post">
     <p id="date">{{post.dateCreated | date:'mediumDate'}}</p>
     <h4>{{post.title}}</h4>
-    <p id="author">by <a routerLink="/">{{post.user.username}}</a></p>
+    <p id="author">by <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
     <p id="text-body">
       {{post.bodyText}}
     </p>
@@ -11,12 +11,12 @@
         <p id="update">Last Updated: {{post.lastUpdated | date:'mediumDate'}}</p>
       </div>
       <div class="col-lg-2 col-sm-3 col-xs-6">
-        <a routerLink="/new">
+        <a routerLink="/edit">
           <img id="edit" src="../../../assets/images/edit-post.svg">
         </a>
-        <a href="#">
+        <button><a (click)="onDeletePost()">
           <img id="delete" src="../../../assets/images/delete-post.svg">
-        </a>
+        </a></button>
       </div>
     </div>
   </div>

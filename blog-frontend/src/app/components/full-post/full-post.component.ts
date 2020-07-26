@@ -22,4 +22,12 @@ export class FullPostComponent implements OnInit {
     })
   }
 
+  onDeletePost(): any {
+    return this.postsService.deletePost(this.id).subscribe(data => {
+      console.log(data);
+    }, error => {
+      console.log(error);
+    });
+  }
+
 }

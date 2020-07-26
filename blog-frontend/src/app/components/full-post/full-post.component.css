@@ -39,3 +39,10 @@ p {
 #delete {
   margin-left: 1.5rem;
 }
+
+button {
+  background-color: transparent;
+  width: 0px;
+  height: 0px;
+  border: none;
+}

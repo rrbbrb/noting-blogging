@@ -23,4 +23,8 @@ export class PostsService {
   getSinglePost(id: number): Observable<PostPayload> {
     return this.httpClient.get<PostPayload>(`${this.postsURL}${+id}`);
   }
+
+  deletePost(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.postsURL}delete/${+id}`);
+  }
 }

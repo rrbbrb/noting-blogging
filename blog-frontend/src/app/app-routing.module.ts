@@ -6,6 +6,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { HomeComponent } from './components/home/home.component';
 import { FullPostComponent } from './components/full-post/full-post.component';
 import { SignupSuccessComponent } from './components/login/signup-success/signup-success.component';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { UserPostsComponent } from './user-posts/user-posts.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -14,6 +16,8 @@ const appRoutes: Routes = [
     { path: 'new', component: NewPostComponent },
     { path: 'home', component: HomeComponent },
     { path: 'post/:id', component: FullPostComponent },
+    { path: 'edit', component: EditPostComponent },
+    { path: ':username', component: UserPostsComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]
 

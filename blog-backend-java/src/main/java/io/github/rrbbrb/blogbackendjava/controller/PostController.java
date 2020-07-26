@@ -34,17 +34,17 @@ public class PostController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
+    public ResponseEntity<PostDto> editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
         if(postsService.editPost(id, postDto)) {
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity(postDto, HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.FORBIDDEN);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity deletePost(@PathVariable @RequestBody Long id) {
+    public ResponseEntity<String> deletePost(@PathVariable @RequestBody Long id) {
         if(postsService.deletePost(id)) {
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity("Post Deleted", HttpStatus.OK);
         }
         return new ResponseEntity(HttpStatus.FORBIDDEN);
     }
