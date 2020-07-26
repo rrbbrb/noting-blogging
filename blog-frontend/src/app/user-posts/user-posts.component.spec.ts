@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ResetSuccessComponent } from './reset-success.component';
+import { UserPostsComponent } from './user-posts.component';
 
-describe('ResetSuccessComponent', () => {
-  let component: ResetSuccessComponent;
-  let fixture: ComponentFixture<ResetSuccessComponent>;
+describe('UserPostsComponent', () => {
+  let component: UserPostsComponent;
+  let fixture: ComponentFixture<UserPostsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResetSuccessComponent ]
+      declarations: [ UserPostsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ResetSuccessComponent);
+    fixture = TestBed.createComponent(UserPostsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

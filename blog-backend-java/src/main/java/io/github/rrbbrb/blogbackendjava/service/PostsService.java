@@ -7,6 +7,7 @@ import io.github.rrbbrb.blogbackendjava.model.Post;
 import io.github.rrbbrb.blogbackendjava.repository.PostRepository;
 import io.github.rrbbrb.blogbackendjava.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -29,17 +30,15 @@ public class PostsService {
 
     public void createPost(PostDto postDto) {
         Post post = new Post();
-
         post.setDateCreated(LocalDateTime.now());
         mapFromDtoToPost(post, postDto);
         User currentUser = getCurrentUser();
         post.setUser(getCurrentUserFromDB(currentUser));
-
         postRepository.save(post);
     }
 
     public List<PostDto> listAllPosts() {
-        List<Post> posts = postRepository.findAll();
+        List<Post> posts = postRepository.findAll(Sort.by("lastUpdated").descending());
         return posts.stream().map(this::mapFromPostToDto).collect(Collectors.toList());
     }
 
@@ -94,7 +93,6 @@ public class PostsService {
 
     private void mapFromDtoToPost(Post post, PostDto postDto) {
         post.setTitle(postDto.getTitle());
-        post.setCoverPhoto(postDto.getCoverPhoto());
         post.setBodyText(postDto.getBodyText());
         post.setLastUpdated(LocalDateTime.now());
     }
@@ -103,10 +101,12 @@ public class PostsService {
         PostDto postDto = new PostDto();
         postDto.setId(post.getId());
         postDto.setTitle(post.getTitle());
-        postDto.setCoverPhoto(post.getCoverPhoto());
         postDto.setBodyText(post.getBodyText());
         postDto.setUser(post.getUser());
+        postDto.setDateCreated(post.getDateCreated());
+        postDto.setLastUpdated(post.getLastUpdated());
         return postDto;
     }
+    
 
 }

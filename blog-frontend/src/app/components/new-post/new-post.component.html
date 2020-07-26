@@ -10,24 +10,6 @@
         </div>
       </div>
 
-      <div class="row justify-content-center" id="cover-photo-upload">
-        <div class="form-group">
-          <label for="input-cover-photo">Cover Photo</label>
-          <div class="row">
-            <div class="col-10">
-              <input type="text" class="form-control" id="cover-photo-name" placeholder="{{this.selectedFile.name}}">
-              <input style="display: none;" type="file" (change)="onFileSelected($event)" class="form-control"
-                id="input-cover-photo" [formControlName]="'coverPhoto'" #fileInput>
-            </div>
-            <div class="col-2">
-              <button id="image-icon" (click)="fileInput.click()">
-                <img src="../../../assets/images/upload-image.svg" alt="Upload cover photo">
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="row justify-content-center">
         <div class="form-group">
           <label for="input-body-text">Body Text</label>

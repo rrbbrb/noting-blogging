@@ -1,21 +1,22 @@
 .post {
   margin: 2.8rem 1.8rem 4.2rem 1.8rem;
-  padding: 0.8rem 2.5rem 2rem 2.5rem;
+  padding: 0.8rem 2.5rem 1.5rem 2.5rem;
   border: 2px solid #000000;
   border-radius: 5px;
+  width: 674px;
+  max-width: 100%;
 }
 
 #date {
   font-size: 75%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
 }
 
-#cover {
-  display: block;
-  max-width: 100%;
-  border-radius: 2px;
-  margin: 2.35rem auto 1.35rem auto;
+#author {
+  font-size: 70%;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 p {
@@ -26,7 +27,7 @@ p {
 }
 
 #text-body {
-  margin: 0.5rem 0rem 3.25rem 0rem;
+  margin: 1.5rem 0rem 2rem 0rem;
 }
 
 #update {

@@ -7,18 +7,17 @@ import { LoginComponent } from './components/login/login/login.component';
 import { SignupComponent } from './components/login/signup/signup.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
-import { VerificationLinkComponent } from './components/login/verification-link/verification-link.component';
-import { VerifiedComponent } from './components/login/verified/verified.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { HomeComponent } from './components/home/home.component';
 import { FullPostComponent } from './components/full-post/full-post.component';
-import { PasswordResetComponent } from './components/login/password-reset/password-reset.component';
-import { ResetSuccessComponent } from './components/login/reset-success/reset-success.component';
 import { SignupSuccessComponent } from './components/login/signup-success/signup-success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthService } from './service/auth/auth.service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { HttpClientInterceptor } from './service/http-client-interceptor';
+import { EditPostComponent } from './components/edit-post/edit-post.component';
+import { UserPostsComponent } from './user-posts/user-posts.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +26,12 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     LoginComponent,
     SignupComponent,
     FooterComponent,
-    VerificationLinkComponent,
-    VerifiedComponent,
     NewPostComponent,
     HomeComponent,
     FullPostComponent,
-    PasswordResetComponent,
-    ResetSuccessComponent,
-    SignupSuccessComponent
+    SignupSuccessComponent,
+    EditPostComponent,
+    UserPostsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +41,7 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
     HttpClientModule,
     NgxWebstorageModule.forRoot()
   ],
-  providers: [AuthService],
+  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

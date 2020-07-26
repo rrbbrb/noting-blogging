@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NewPostPayload } from 'src/app/components/new-post/new-post-payload';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { PostPayload } from 'src/app/components/new-post/post-payload';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,15 @@ export class PostsService {
 
   constructor(private httpClient: HttpClient) { }
 
-  uploadNewPost(newPostPayload: NewPostPayload): Observable<any> {
-    return this.httpClient.post(`${this.postsURL}new`, newPostPayload);
+  uploadNewPost(postPayload: PostPayload): Observable<any> {
+    return this.httpClient.post(`${this.postsURL}new`, postPayload);
+  }
+
+  getAllPosts(): Observable<Array<PostPayload>> {
+    return this.httpClient.get<Array<PostPayload>>(this.postsURL);
+  }
+
+  getSinglePost(id: number): Observable<PostPayload> {
+    return this.httpClient.get<PostPayload>(`${this.postsURL}${+id}`);
   }
 }

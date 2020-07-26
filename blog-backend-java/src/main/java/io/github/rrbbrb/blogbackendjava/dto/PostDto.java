@@ -1,5 +1,6 @@
 package io.github.rrbbrb.blogbackendjava.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.rrbbrb.blogbackendjava.model.User;
 
 import java.time.LocalDateTime;
@@ -8,9 +9,13 @@ public class PostDto {
 
     private Long Id;
     private String title;
-    private byte[] coverPhoto;
     private String bodyText;
     private User user;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime dateCreated;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime lastUpdated;
 
     public Long getId() {
@@ -29,14 +34,6 @@ public class PostDto {
         this.title = title;
     }
 
-    public byte[] getCoverPhoto() {
-        return coverPhoto;
-    }
-
-    public void setCoverPhoto(byte[] coverPhoto) {
-        this.coverPhoto = coverPhoto;
-    }
-
     public String getBodyText() {
         return bodyText;
     }
@@ -51,6 +48,14 @@ public class PostDto {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(LocalDateTime dateCreated) {
+        this.dateCreated = dateCreated;
     }
 
     public LocalDateTime getLastUpdated() {
