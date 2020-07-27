@@ -42,6 +42,17 @@ public class PostsService {
         return posts.stream().map(this::mapFromPostToDto).collect(Collectors.toList());
     }
 
+    public List<PostDto> listAllPostsByUser(String username) {
+        io.github.rrbbrb.blogbackendjava.model.User user = userRepository.findByUsername(username).orElseThrow(() -> new UserNotFoundException("no user found with username " + username));
+        if(user != null) {
+            Long id = user.getId();
+            List<Post> posts = postRepository.findAllByUserId(id);
+            return posts.stream().map(this::mapFromPostToDto).collect(Collectors.toList());
+        } else {
+            return null;
+        }
+    }
+
     public PostDto readSinglePost(Long id) {
         Post post = findPostById(id);
         return mapFromPostToDto(post);

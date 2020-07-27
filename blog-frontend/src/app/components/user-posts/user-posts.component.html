@@ -2,7 +2,7 @@
   <div class="post">
     <p id="date">{{post.dateCreated | date:'mediumDate'}}</p>
     <h4>{{post.title}}</h4>
-    <p id="author">by <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
+    <p id="author">by <a routerLink="/">{{post.user.username}}</a></p>
     <p id="text-body">
       {{post.bodyText}}
     </p>

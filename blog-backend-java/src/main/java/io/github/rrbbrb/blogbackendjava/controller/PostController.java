@@ -33,19 +33,25 @@ public class PostController {
         return new ResponseEntity<>(postsService.readSinglePost(id), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{username}")
+    public ResponseEntity<List<PostDto>> listAllPostsByUser(@PathVariable @RequestBody String username) {
+        List<PostDto> postDtos = postsService.listAllPostsByUser(username);
+        return new ResponseEntity<>(postDtos, HttpStatus.OK);
+    }
+
     @PutMapping("/edit/{id}")
     public ResponseEntity<PostDto> editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
         if(postsService.editPost(id, postDto)) {
-            return new ResponseEntity(postDto, HttpStatus.OK);
+            return new ResponseEntity<>(postDto, HttpStatus.OK);
         }
-        return new ResponseEntity(HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deletePost(@PathVariable @RequestBody Long id) {
+    public ResponseEntity<Boolean> deletePost(@PathVariable @RequestBody Long id) {
         if(postsService.deletePost(id)) {
-            return new ResponseEntity("Post Deleted", HttpStatus.OK);
+            return new ResponseEntity<>(true, HttpStatus.OK);
         }
-        return new ResponseEntity(HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(false, HttpStatus.FORBIDDEN);
     }
 }

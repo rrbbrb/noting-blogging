@@ -17,7 +17,7 @@ import { AuthService } from './service/auth/auth.service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientInterceptor } from './service/http-client-interceptor';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
-import { UserPostsComponent } from './user-posts/user-posts.component';
+import { UserPostsComponent } from './components/user-posts/user-posts.component';
 
 @NgModule({
   declarations: [

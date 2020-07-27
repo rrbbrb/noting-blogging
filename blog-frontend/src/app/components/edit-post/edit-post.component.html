@@ -1,1 +1,31 @@
-<p>edit-post works!</p>
+<div class="row justify-content-center">
+  <div id="view-container">
+
+    <form [formGroup]="newPostForm" (ngSubmit)="onSubmit()">
+
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <label for="input-title">Title</label>
+          <input type="text" class="form-control" id="input-title" [formControlName]="'title'">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <label for="input-body-text">Body Text</label>
+          <textarea class="form-control" id="input-body-text" rows="22" [formControlName]="'bodyText'"></textarea>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="text-center">
+          <button type="submit" class="btn">Publish</button>
+          <p><a routerLink="/">Discard</a></p>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
