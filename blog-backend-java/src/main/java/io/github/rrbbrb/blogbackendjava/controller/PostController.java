@@ -40,11 +40,11 @@ public class PostController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<PostDto> editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
+    public ResponseEntity<Boolean> editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
         if(postsService.editPost(id, postDto)) {
-            return new ResponseEntity<>(postDto, HttpStatus.OK);
+            return new ResponseEntity<>(true, HttpStatus.OK);
         }
-        return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
+        return new ResponseEntity<>(false, HttpStatus.FORBIDDEN);
     }
 
     @DeleteMapping("/delete/{id}")

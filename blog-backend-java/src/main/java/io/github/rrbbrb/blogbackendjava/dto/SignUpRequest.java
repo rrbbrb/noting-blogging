@@ -2,17 +2,17 @@ package io.github.rrbbrb.blogbackendjava.dto;
 
 public class SignUpRequest {
 
-    private String email;
+//    private String email;
     private String username;
     private String password;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getUsername() {
         return username;

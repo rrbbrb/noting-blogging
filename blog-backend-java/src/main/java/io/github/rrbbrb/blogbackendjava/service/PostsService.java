@@ -60,8 +60,9 @@ public class PostsService {
 
     public boolean editPost(Long id, PostDto postDto) {
         if(matchPostAuthor(id)) {
-            Post post = findPostById(id);
+            Post post = postRepository.findById(id).get();
             mapFromDtoToPost(post, postDto);
+            postRepository.save(post);
             return true;
         }
         return false;

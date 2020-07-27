@@ -22,6 +22,11 @@ export class FullPostComponent implements OnInit {
     });
   }
 
+  sendPostForEdit() {
+    this.postsService.injectPost(this.post);
+    console.log("Injected post: " + this.post)
+  }
+
   onDeletePost(): any {
     return this.postsService.deletePost(this.id).subscribe(data => {
       console.log(data);

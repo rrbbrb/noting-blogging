@@ -32,7 +32,7 @@ public class AuthService {
 
     public void signUp(SignUpRequest signUpRequest) {
         User user = new User();
-        user.setEmail(signUpRequest.getEmail());
+//        user.setEmail(signUpRequest.getEmail());
         user.setUsername(signUpRequest.getUsername());
         user.setEncodedPassword(encodePassword(signUpRequest.getPassword()));
         userRepository.save(user);

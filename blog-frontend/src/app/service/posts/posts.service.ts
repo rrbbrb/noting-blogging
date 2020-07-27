@@ -1,16 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { PostPayload } from 'src/app/components/new-post/post-payload';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
 
+  private postForEdit = new BehaviorSubject<PostPayload>({
+    id: null,
+    title: '',
+    bodyText: '',
+    user: null,
+    dateCreated: null,
+    lastUpdated: null
+  });
+  currentPost = this.postForEdit.asObservable();
+
   private postsURL = "http://localhost:8080/api/posts/"
 
   constructor(private httpClient: HttpClient) { }
+
+  injectPost(postPayload: PostPayload) {
+    this.postForEdit.next(postPayload);
+  }
 
   uploadNewPost(postPayload: PostPayload): Observable<any> {
     return this.httpClient.post(`${this.postsURL}new`, postPayload);
@@ -30,5 +44,9 @@ export class PostsService {
 
   deletePost(id: number): Observable<any> {
     return this.httpClient.delete(`${this.postsURL}delete/${+id}`);
+  }
+
+  updatePost(id: number, updatedPostPayload: PostPayload): Observable<any> {
+    return this.httpClient.put(`${this.postsURL}edit/${+id}`, updatedPostPayload);
   }
 }

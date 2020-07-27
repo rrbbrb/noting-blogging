@@ -11,12 +11,12 @@
         <p id="update">Last Updated: {{post.lastUpdated | date:'mediumDate'}}</p>
       </div>
       <div class="col-lg-2 col-sm-3 col-xs-6">
-        <a routerLink="/edit">
-          <img id="edit" src="../../../assets/images/edit-post.svg">
+        <a (click)="sendPostForEdit()" routerLink="/edit/{{post.id}}">
+          <img src="../../../assets/images/edit-post.svg">
         </a>
-        <button><a (click)="onDeletePost()">
-          <img id="delete" src="../../../assets/images/delete-post.svg">
-        </a></button>
+        <a id="delete" style="cursor: pointer;" (click)="onDeletePost()">
+          <img src="../../../assets/images/delete-post.svg">
+        </a>
       </div>
     </div>
   </div>

@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     { path: 'new', component: NewPostComponent, canActivate: [AuthGuard] },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'post/:id', component: FullPostComponent, canActivate: [AuthGuard] },
-    { path: 'edit', component: EditPostComponent, canActivate: [AuthGuard] },
+    { path: 'edit/:id', component: EditPostComponent, canActivate: [AuthGuard] },
     { path: ':username', component: UserPostsComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]

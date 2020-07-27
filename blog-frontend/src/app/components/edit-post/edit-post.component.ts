@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { PostPayload } from '../new-post/post-payload';
 import { PostsService } from 'src/app/service/posts/posts.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-post',
@@ -11,15 +11,18 @@ import { Router } from '@angular/router';
 })
 export class EditPostComponent implements OnInit {
 
-  newPostForm: FormGroup;
-  newPostPayload: PostPayload;  
+  id: number;
+  updatePostForm: FormGroup;
+  fetchedPostPayload: PostPayload;
+  updatePostPayload: PostPayload;  
 
-  constructor(private postsService: PostsService, private router: Router) {
-    this.newPostForm = new FormGroup({
-      title: new FormControl(),
-      bodyText: new FormControl()
+  constructor(private postsService: PostsService, private router: Router, private route: ActivatedRoute) {
+    this.postsService.currentPost.subscribe(post => this.fetchedPostPayload = post);
+    this.updatePostForm = new FormGroup({
+      title: new FormControl(this.fetchedPostPayload.title),
+      bodyText: new FormControl(this.fetchedPostPayload.bodyText)
     });
-    this.newPostPayload = {
+    this.updatePostPayload = {
       id: null,
       title: '',
       bodyText: '',
@@ -29,19 +32,21 @@ export class EditPostComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.id = +this.route.snapshot.paramMap.get('id');
+  }
 
   onSubmit() {
-    this.newPostPayload.title = this.newPostForm.get('title').value;
-    this.newPostPayload.bodyText = this.newPostForm.get('bodyText').value;
+    this.updatePostPayload.title = this.updatePostForm.get('title').value;
+    this.updatePostPayload.bodyText = this.updatePostForm.get('bodyText').value;
 
-    this.postsService.uploadNewPost(this.newPostPayload).subscribe(data => {
+    this.postsService.updatePost(this.id, this.updatePostPayload).subscribe(data => {
       console.log(data);
       if (data) {
-        console.log("New post added");
-        this.router.navigateByUrl('/home');
+        console.log("Post updated");
+        this.router.navigateByUrl(`/post/${this.id}`);
       } else {
-        console.log("New post not added");
+        console.log("Post not updated");
       }
     });
   }

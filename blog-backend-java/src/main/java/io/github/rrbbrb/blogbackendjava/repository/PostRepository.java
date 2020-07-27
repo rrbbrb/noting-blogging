@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface PostRepository extends JpaRepository<Post, Long> {
 
-    @Query(value = "SELECT * FROM posts WHERE user_id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM posts WHERE user_id = :id ORDER BY last_updated DESC", nativeQuery = true)
     List<Post> findAllByUserId(@Param("id") Long id);
 }
