@@ -51,4 +51,10 @@ export class EditPostComponent implements OnInit {
     });
   }
 
+  cancelUpdate() {
+    if(window.confirm("Are you sure to cancel editing this post?")) {
+      this.router.navigateByUrl('/home');
+    }
+  }
+
 }

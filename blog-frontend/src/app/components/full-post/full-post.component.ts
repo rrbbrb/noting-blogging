@@ -28,16 +28,18 @@ export class FullPostComponent implements OnInit {
   }
 
   onDeletePost(): any {
-    return this.postsService.deletePost(this.id).subscribe(data => {
-      console.log(data);
-      if(data) {
-        this.router.navigateByUrl('/home');
-      } else {
+    if (window.confirm("Are you sure to delete this post?")) {
+      return this.postsService.deletePost(this.id).subscribe(data => {
         console.log(data);
-      }
-    }, error => {
-      console.log(error);
-    });
+        if (data) {
+          this.router.navigateByUrl('/home');
+        } else {
+          console.log(data);
+        }
+      }, error => {
+        console.log(error);
+      });
+    }
   }
 
   // TODO: add line breaks to text area

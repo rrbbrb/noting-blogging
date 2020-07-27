@@ -47,4 +47,10 @@ export class NewPostComponent implements OnInit {
     });
   }
 
+  dropDraft() {
+    if(window.confirm("Are you sure to discard this post?")) {
+      this.router.navigateByUrl('/home');
+    }
+  }
+
 }
