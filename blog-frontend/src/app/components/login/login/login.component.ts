@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   loginPayload: LoginPayload;
+  loggedInUsername: string;
 
   constructor(private authService: AuthService, private router: Router) { 
     this.loginForm = new FormGroup({
@@ -43,6 +44,11 @@ export class LoginComponent implements OnInit {
   }
 
   isAuthenticated(): boolean {
+    this.loggedInUsername = this.authService.getUsername();
     return this.authService.isAuthenticated();
+  }
+
+  onLogOut() {
+    this.authService.logOut();
   }
 }

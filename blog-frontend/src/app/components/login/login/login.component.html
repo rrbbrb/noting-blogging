@@ -23,11 +23,20 @@
 
 <div *ngIf="isAuthenticated()">
   <div class="row justify-content-center">
-    <h5>Do you want to sign out?</h5>
+    <h5>
+      Signed in as
+      <a routerLink="/{{loggedInUsername}}">
+        <span id="username">
+          {{loggedInUsername}}
+        </span>
+      </a>
+      <br />
+      Do you want to sign out?
+    </h5>
   </div>
   <div class="row justify-content-center">
     <div class="text-center">
-      <button type="button" class="btn sign-out-route">Yes, sign me out</button>
+      <button type="button" (click)="onLogOut()" class="btn sign-out-route">Yes, sign me out</button>
       <div class="cancel-route">
         <p><a routerLink="/home">Cancel</a></p>
       </div>

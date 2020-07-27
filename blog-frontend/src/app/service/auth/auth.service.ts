@@ -33,4 +33,13 @@ export class AuthService {
   isAuthenticated(): boolean {
     return this.localStorageService.retrieve('username') != null;
   }
+
+  getUsername(): string {
+    return this.localStorageService.retrieve('username');
+  }
+
+  logOut() {
+    this.localStorageService.clear('username');
+    this.localStorageService.clear('authenticationToken');
+  }
 }
