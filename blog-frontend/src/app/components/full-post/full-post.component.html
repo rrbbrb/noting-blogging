@@ -11,10 +11,10 @@
         <p id="update">Last Updated: {{post.lastUpdated | date:'mediumDate'}}</p>
       </div>
       <div class="col-lg-2 col-sm-3 col-xs-6">
-        <a (click)="sendPostForEdit()" routerLink="/edit/{{post.id}}">
+        <a *ngIf="sameUser" (click)="sendPostForEdit()" routerLink="/edit/{{post.id}}">
           <img src="../../../assets/images/edit-post.svg">
         </a>
-        <a id="delete" style="cursor: pointer;" (click)="onDeletePost()">
+        <a *ngIf="sameUser" id="delete" style="cursor: pointer;" (click)="onDeletePost()">
           <img src="../../../assets/images/delete-post.svg">
         </a>
       </div>

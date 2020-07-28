@@ -42,4 +42,8 @@ export class AuthService {
     this.localStorageService.clear('username');
     this.localStorageService.clear('authenticationToken');
   }
+
+  matchUser(username: string): boolean {
+    return this.getUsername() == username;
+  }
 }

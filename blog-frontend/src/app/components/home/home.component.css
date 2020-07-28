@@ -30,6 +30,7 @@ p {
   max-height: 9rem;
   overflow: hidden;
   margin: 1.5rem 0rem 0rem 0rem;
+  white-space: pre-wrap;
 }
 
 #dots {

@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { PostPayload } from '../new-post/post-payload';
 import { PostsService } from 'src/app/service/posts/posts.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/service/auth/auth.service';
 
 @Component({
   selector: 'app-edit-post',
@@ -14,10 +15,18 @@ export class EditPostComponent implements OnInit {
   id: number;
   updatePostForm: FormGroup;
   fetchedPostPayload: PostPayload;
-  updatePostPayload: PostPayload;  
+  updatePostPayload: PostPayload;
+  sameUser: boolean;  
 
-  constructor(private postsService: PostsService, private router: Router, private route: ActivatedRoute) {
-    this.postsService.currentPost.subscribe(post => this.fetchedPostPayload = post);
+  constructor(private postsService: PostsService, private router: Router, private route: ActivatedRoute, private authService: AuthService) {
+    this.postsService.currentPost.subscribe(post => {
+      this.fetchedPostPayload = post;
+      const author = this.fetchedPostPayload.user;
+      if(author == null || !this.authService.matchUser(author.username)) {
+        window.alert("You don't have permission to edit this post!");
+        this.router.navigateByUrl(`/post/${this.route.snapshot.paramMap.get('id')}`);
+      }
+    });
     this.updatePostForm = new FormGroup({
       title: new FormControl(this.fetchedPostPayload.title),
       bodyText: new FormControl(this.fetchedPostPayload.bodyText)

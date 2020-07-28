@@ -28,6 +28,7 @@ p {
 
 #text-body {
   margin: 1.5rem 0rem 2rem 0rem;
+  white-space: pre-wrap;
 }
 
 #update {
