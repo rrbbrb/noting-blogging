@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { SignupPayload } from './signup-payload';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { Router } from '@angular/router';
@@ -14,13 +14,21 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   signupPayload: SignupPayload
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
-    this.signupForm = this.formBuilder.group({
-      username: '',
+
+  constructor(private authService: AuthService, private router: Router) {
+    const passwordErrorValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
+      const password = control.get('password');
+      const confirmPassword = control.get('confirmPassword');
+      return password.value  != confirmPassword.value ? { 'passwordError': true } : null;
+    }
+
+    this.signupForm = new FormGroup({
+      username: new FormControl('', Validators.required),
       // email: '',
-      password: '',
-      confirmPassword: ''
-    })
+      password: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required)
+    }, { validators: passwordErrorValidator });
+
     this.signupPayload = {
       username: '',
       // email: '',
@@ -31,7 +39,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
   onSubmit() {
     this.signupPayload.username = this.signupForm.get('username').value;
     // this.signupPayload.email = this.signupForm.get('email').value;

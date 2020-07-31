@@ -29,3 +29,9 @@ h5 {
 #username {
   font-weight: 600;
 }
+
+button:disabled{
+  opacity: 1;
+  background-color: #FFFFFF;
+  color: #000000;
+}

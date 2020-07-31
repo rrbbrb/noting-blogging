@@ -53,6 +53,12 @@ a {
   }
 }
 
+button:disabled {
+  opacity: 1;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
 @media screen and (max-width: 385px) {
   .form-control {
     width: 280px;

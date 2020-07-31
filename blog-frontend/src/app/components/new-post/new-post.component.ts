@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PostPayload } from './post-payload';
 import { PostsService } from 'src/app/service/posts/posts.service';
 import { Router } from '@angular/router';
@@ -17,8 +17,8 @@ export class NewPostComponent implements OnInit {
 
   constructor(private postsService: PostsService, private router: Router) {
     this.newPostForm = new FormGroup({
-      title: new FormControl(),
-      bodyText: new FormControl()
+      title: new FormControl('', Validators.required),
+      bodyText: new FormControl('', Validators.required)
     });
     this.newPostPayload = {
       id: null,

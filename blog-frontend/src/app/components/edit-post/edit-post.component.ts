@@ -16,7 +16,7 @@ export class EditPostComponent implements OnInit {
   updatePostForm: FormGroup;
   fetchedPostPayload: PostPayload;
   updatePostPayload: PostPayload;
-  sameUser: boolean;  
+  sameUser: boolean;
 
   constructor(private postsService: PostsService, private router: Router, private route: ActivatedRoute, private authService: AuthService) {
     this.postsService.currentPost.subscribe(post => {
