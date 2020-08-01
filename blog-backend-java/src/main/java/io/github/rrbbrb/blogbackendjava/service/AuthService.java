@@ -30,12 +30,19 @@ public class AuthService {
     @Autowired
     private JwtProvider jwtProvider;
 
-    public void signUp(SignUpRequest signUpRequest) {
+    public boolean signUp(SignUpRequest signUpRequest) {
         User user = new User();
 //        user.setEmail(signUpRequest.getEmail());
-        user.setUsername(signUpRequest.getUsername());
-        user.setEncodedPassword(encodePassword(signUpRequest.getPassword()));
-        userRepository.save(user);
+        String username = signUpRequest.getUsername();
+        if(userRepository.findByUsername(username) == null) {
+            user.setUsername(username);
+            user.setEncodedPassword(encodePassword(signUpRequest.getPassword()));
+            userRepository.save(user);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     private String encodePassword(String password) {

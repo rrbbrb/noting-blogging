@@ -51,6 +51,7 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/signup-success');
     }, error => {
       console.log('sign up failed');
+      window.alert("This username is already taken");
     });
   }
 

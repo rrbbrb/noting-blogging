@@ -21,8 +21,10 @@ public class AuthController {
 
     @PostMapping("/sign-up")
     public ResponseEntity signUp(@RequestBody SignUpRequest signUpRequest) {
-        authService.signUp(signUpRequest);
-        return new ResponseEntity(HttpStatus.OK);
+        if(authService.signUp(signUpRequest)) {
+            return new ResponseEntity(HttpStatus.OK);
+        }
+        return new ResponseEntity(HttpStatus.FORBIDDEN);
     }
 
     @PostMapping("/log-in")
