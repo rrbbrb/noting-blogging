@@ -4,6 +4,7 @@ import { PostPayload } from './post-payload';
 import { PostsService } from 'src/app/service/posts/posts.service';
 import { Router } from '@angular/router';
 import { bufferToggle } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-post',
@@ -15,7 +16,7 @@ export class NewPostComponent implements OnInit {
   newPostForm: FormGroup;
   newPostPayload: PostPayload;  
 
-  constructor(private postsService: PostsService, private router: Router) {
+  constructor(private postsService: PostsService, private router: Router, private translateService: TranslateService) {
     this.newPostForm = new FormGroup({
       title: new FormControl('', Validators.required),
       bodyText: new FormControl('', Validators.required)
@@ -48,7 +49,11 @@ export class NewPostComponent implements OnInit {
   }
 
   dropDraft() {
-    if(window.confirm("Are you sure to discard this post?")) {
+    let confirmDiscard: string;
+    this.translateService.get('posts.confirmDiscard').subscribe(translation => {
+      confirmDiscard = translation;
+    });
+    if(window.confirm(confirmDiscard)) {
       this.router.navigateByUrl('/home');
     }
   }

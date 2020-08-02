@@ -12,6 +12,7 @@ export class UserPostsComponent implements OnInit {
 
   username: string;
   posts: PostPayload[];
+  zeroPosts: boolean;
 
   constructor(private postsService: PostsService, private route: ActivatedRoute) { }
 
@@ -20,6 +21,9 @@ export class UserPostsComponent implements OnInit {
     this.postsService.getAllPostsByUser(this.username).subscribe(data => {
       console.log("fetched " + data.length + " posts by " + this.username);
       this.posts = data;
+      if(this.posts.length == 0) {
+        this.zeroPosts = true;
+      }
     });
   }
 

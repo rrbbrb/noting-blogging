@@ -2,12 +2,12 @@
   <div class="post">
     <p id="date">{{post.dateCreated | date:'mediumDate'}}</p>
     <h4>{{post.title}}</h4>
-    <p id="author">by <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
+    <p id="author">{{"posts.by" | translate}} <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
     <p id="text-body">
       {{post.bodyText}}
     </p>
     <p id="dots">...</p>
-    <a id="read-more" routerLink="/post/{{post.id}}">Read more</a>
+    <a id="read-more" routerLink="/post/{{post.id}}">{{"posts.readMore" | translate}}</a>
   </div>
 </div>
 

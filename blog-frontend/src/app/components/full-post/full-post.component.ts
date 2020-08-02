@@ -3,6 +3,7 @@ import { PostsService } from 'src/app/service/posts/posts.service';
 import { PostPayload } from '../new-post/post-payload';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-full-post',
@@ -16,7 +17,7 @@ export class FullPostComponent implements OnInit {
   sameUser: boolean;
 
 
-  constructor(private postsService: PostsService, private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
+  constructor(private postsService: PostsService, private route: ActivatedRoute, private router: Router, private authService: AuthService, private translateService: TranslateService) { }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -32,7 +33,11 @@ export class FullPostComponent implements OnInit {
   }
 
   onDeletePost(): any {
-    if (window.confirm("Are you sure to delete this post?")) {
+    let confirmDelete: string;
+    this.translateService.get('posts.confirmDelete').subscribe(translation => {
+      confirmDelete = translation;
+    });
+    if (window.confirm(confirmDelete)) {
       return this.postsService.deletePost(this.id).subscribe(data => {
         console.log(data);
         if (data) {

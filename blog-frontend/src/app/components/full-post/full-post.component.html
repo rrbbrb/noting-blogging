@@ -2,13 +2,13 @@
   <div class="post">
     <p id="date">{{post.dateCreated | date:'mediumDate'}}</p>
     <h4>{{post.title}}</h4>
-    <p id="author">by <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
+    <p id="author">{{"posts.by" | translate}} <a routerLink="/{{post.user.username}}">{{post.user.username}}</a></p>
     <p id="text-body">
       {{post.bodyText}}
     </p>
     <div class="row">
       <div class="col-lg-10 col-sm-9 col-xs-6">
-        <p id="update">Last Updated: {{post.lastUpdated | date:'mediumDate'}}</p>
+        <p id="update">{{"posts.lastUpdated" | translate}}: {{post.lastUpdated | date:'mediumDate'}}</p>
       </div>
       <div class="col-lg-2 col-sm-3 col-xs-6">
         <a *ngIf="sameUser" (click)="sendPostForEdit()" routerLink="/edit/{{post.id}}">

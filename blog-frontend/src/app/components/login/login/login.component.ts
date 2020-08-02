@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { LoginPayload } from './login-payload';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   loginPayload: LoginPayload;
   loggedInUsername: string;
 
-  constructor(private authService: AuthService, private router: Router) { 
+  constructor(private authService: AuthService, private router: Router, private translateService: TranslateService) { 
     this.loginForm = new FormGroup({
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
@@ -40,6 +41,13 @@ export class LoginComponent implements OnInit {
       } else {
         console.log("Login failed");
       }
+    }, error => {
+      console.log(error);
+      let invalid: string;
+      this.translateService.get('login.invalid').subscribe(translation => {
+        invalid = translation;
+      });
+      window.alert(invalid);
     });
   }
 

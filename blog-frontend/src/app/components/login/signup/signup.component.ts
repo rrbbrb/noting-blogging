@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ValidatorFn, ValidationErrors } fro
 import { SignupPayload } from './signup-payload';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   signupPayload: SignupPayload
 
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService, private router: Router, private translateService: TranslateService) {
     const passwordErrorValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
       const password = control.get('password');
       const confirmPassword = control.get('confirmPassword');
@@ -51,7 +52,11 @@ export class SignupComponent implements OnInit {
       this.router.navigateByUrl('/signup-success');
     }, error => {
       console.log('sign up failed');
-      window.alert("This username is already taken");
+      let usernameTaken: string;
+      this.translateService.get('login.usernameTaken').subscribe(translation => {
+        usernameTaken = translation;
+      });
+      window.alert(usernameTaken);
     });
   }
 

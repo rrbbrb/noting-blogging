@@ -1,0 +1,42 @@
+{
+    "login": {
+        "username": "帳號",
+        "password": "密碼",
+        "confirmPassword": "確認密碼",
+        "login": "登入",
+        "log-in": "登入",
+        "sign-up": "註冊",
+        "noAccount": "還沒有帳號嗎? 按此",
+        "alreadyAccount": "已經有帳號了嗎? 按此",
+        "invalid": "帳號或密碼不正確",
+        "usernameTaken": "你所選的帳號已被註冊",
+        "signUpSuccess": "你已成功註冊",
+        "clickHere": "按此",
+        "toLogIn": "登入",
+        "signedInAs": "你現正登入為",
+        "signOutAsk": "你要登出嗎?",
+        "yesSignOut": "是的, 現在就登出",
+        "cancel": "取消"
+    },
+
+    "posts": {
+        "by": "作者:",
+        "readMore": "閱讀全文",
+        "lastUpdated": "最後更新日期",
+        "title": "標題",
+        "bodyText": "內文",
+        "publish": "發佈",
+        "discard": "取消",
+        "confirmDiscard": "你確定要放棄這篇文章嗎?",
+        "updatePost": "更新文章",
+        "cancel": "取消",
+        "confirmCancel": "你確定要取消編輯嗎?",
+        "noPermissionEdit": "你沒有修改這篇文章的權限",
+        "zeroPosts": "還沒有發佈任何文章",
+        "confirmDelete": "你確定要刪除這篇文章嗎?"
+    },
+
+    "common": {
+        "language": "選擇語言"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "login": {
+        "username": "username",
+        "password": "password",
+        "confirmPassword": "confirm password",
+        "login": "login",
+        "log-in": "log in",
+        "sign-up": "sign up",
+        "noAccount": "don't have an account? ",
+        "alreadyAccount": "already have an account?" ,
+        "invalid": "Invalid username or password",
+        "usernameTaken": "This username is already taken",
+        "signUpSuccess": "you have successfully signed up.",
+        "clickHere": "click here",
+        "toLogIn": " to log in.",
+        "signedInAs": "signed in as",
+        "signOutAsk": "do you want to sign out?",
+        "yesSignOut": "yes, sign me out",
+        "cancel": "cancel"
+    },
+
+    "posts": {
+        "by": "by",
+        "readMore": "read more",
+        "lastUpdated": "last updated",
+        "title": "title",
+        "bodyText": "body text",
+        "publish": "publish",
+        "discard": "discard",
+        "confirmDiscard": "Are you sure to discard this post?",
+        "updatePost": "update post",
+        "cancel": "cancel",
+        "confirmCancel": "Are you sure to cancel editing this post?",
+        "noPermissionEdit": "You don't have permission to edit this post!",
+        "zeroPosts": "hasn't posted anything yet",
+        "confirmDelete": "Are you sure to delete this post?"
+    },
+
+    "common": {
+        "language": "language"
+    }
+}

@@ -34,7 +34,7 @@ public class AuthService {
         User user = new User();
 //        user.setEmail(signUpRequest.getEmail());
         String username = signUpRequest.getUsername();
-        if(userRepository.findByUsername(username) == null) {
+        if(userRepository.findByUsername(username).orElse(null) == null) {
             user.setUsername(username);
             user.setEncodedPassword(encodePassword(signUpRequest.getPassword()));
             userRepository.save(user);

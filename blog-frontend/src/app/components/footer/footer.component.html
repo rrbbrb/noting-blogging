@@ -1,14 +1,14 @@
 <div id="footer">
-  <h5 class="text-center">Language</h5>
+  <h5 class="text-center">{{"common.language" | translate}}</h5>
   <nav>
     <ul class="navbar-nav mx-auto navbar-expand justify-content-center">
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" style="cursor: pointer;" (click)="setLanguage('en')">
           <img src="../../../assets/images/en.svg" style="max-width: 26px;" />
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" style="cursor: pointer;" (click)="setLanguage('zh')">
           <img src="../../../assets/images/zh.svg" style="max-width: 26px;" />
         </a>
       </li>

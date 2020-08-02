@@ -12,12 +12,15 @@ import { HomeComponent } from './components/home/home.component';
 import { FullPostComponent } from './components/full-post/full-post.component';
 import { SignupSuccessComponent } from './components/login/signup-success/signup-success.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { AuthService } from './service/auth/auth.service';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HttpClientInterceptor } from './service/http-client-interceptor';
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,20 @@ import { UserPostsComponent } from './components/user-posts/user-posts.component
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: HttpClientInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
