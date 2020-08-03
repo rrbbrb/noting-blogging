@@ -39,6 +39,9 @@ export class EditPostComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
+    if(this.fetchedPostPayload.id == null) {
+      this.router.navigateByUrl(`/post/${this.id}`);
+    }
   }
 
   onSubmit() {

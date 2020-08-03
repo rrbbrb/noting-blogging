@@ -9,7 +9,6 @@ import { SignupSuccessComponent } from './components/login/signup-success/signup
 import { EditPostComponent } from './components/edit-post/edit-post.component';
 import { UserPostsComponent } from './components/user-posts/user-posts.component';
 import { AuthGuard } from './service/auth/auth.guard';
-import { PostsGuard } from './service/posts/posts.guard';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -18,7 +17,7 @@ const appRoutes: Routes = [
     { path: 'new', component: NewPostComponent, canActivate: [AuthGuard] },
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'post/:id', component: FullPostComponent, canActivate: [AuthGuard] },
-    { path: 'edit/:id', component: EditPostComponent, canActivate: [AuthGuard, PostsGuard] },
+    { path: 'edit/:id', component: EditPostComponent, canActivate: [AuthGuard] },
     { path: ':username', component: UserPostsComponent, canActivate: [AuthGuard] },
     { path: '', redirectTo: '/home', pathMatch: 'full' }
 ]

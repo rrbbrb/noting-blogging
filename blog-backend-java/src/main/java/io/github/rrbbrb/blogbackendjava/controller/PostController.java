@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -40,9 +41,9 @@ public class PostController {
     }
 
     @GetMapping("/{id}/user")
-    public ResponseEntity<String> findUserByPost(@PathVariable @RequestBody Long id) {
-        String username = postsService.findUserByPost(id);
-        return new ResponseEntity<>(username, HttpStatus.OK);
+    public ResponseEntity<Object> findUserByPost(@PathVariable @RequestBody Long id) {
+        Object username = postsService.findUserByPost(id);
+        return new ResponseEntity<>(Collections.singleton(username), HttpStatus.OK);
     }
 
     @PutMapping("/edit/{id}")

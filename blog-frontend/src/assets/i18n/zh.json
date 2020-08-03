@@ -31,7 +31,6 @@
         "updatePost": "更新文章",
         "cancel": "取消",
         "confirmCancel": "你確定要取消編輯嗎?",
-        "noPermissionEdit": "你沒有修改這篇文章的權限",
         "zeroPosts": "還沒有發佈任何文章",
         "confirmDelete": "你確定要刪除這篇文章嗎?"
     },

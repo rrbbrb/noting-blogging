@@ -31,7 +31,6 @@
         "updatePost": "update post",
         "cancel": "cancel",
         "confirmCancel": "Are you sure to cancel editing this post?",
-        "noPermissionEdit": "You don't have permission to edit this post!",
         "zeroPosts": "hasn't posted anything yet",
         "confirmDelete": "Are you sure to delete this post?"
     },
