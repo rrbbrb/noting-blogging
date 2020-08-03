@@ -20,17 +20,8 @@ export class EditPostComponent implements OnInit {
   sameUser: boolean;
 
   constructor(private postsService: PostsService, private router: Router, private route: ActivatedRoute, private authService: AuthService, private translateService: TranslateService) {
-    let noPermissionEdit: string;
-    this.translateService.stream('posts.noPermissionEdit').subscribe(translation => {
-      noPermissionEdit = translation;
-    });
     this.postsService.currentPost.subscribe(post => {
       this.fetchedPostPayload = post;
-      const author = this.fetchedPostPayload.user;
-      if(author == null || !this.authService.matchUser(author.username)) {
-        window.alert(noPermissionEdit);
-        this.router.navigateByUrl(`/post/${this.route.snapshot.paramMap.get('id')}`);
-      }
     });
     this.updatePostForm = new FormGroup({
       title: new FormControl(this.fetchedPostPayload.title),
@@ -70,7 +61,7 @@ export class EditPostComponent implements OnInit {
     this.translateService.get('posts.confirmCancel').subscribe(translation => {
       confirmCancel = translation;
     });
-    if(window.confirm(confirmCancel)) {
+    if (window.confirm(confirmCancel)) {
       this.router.navigateByUrl('/home');
     }
   }

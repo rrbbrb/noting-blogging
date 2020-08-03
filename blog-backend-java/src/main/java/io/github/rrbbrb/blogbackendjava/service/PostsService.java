@@ -53,6 +53,15 @@ public class PostsService {
         }
     }
 
+    public String findUserByPost(Long id) {
+        Post post = findPostById(id);
+        if(post != null) {
+            String username = post.getUser().getUsername();
+            return username;
+        }
+        return null;
+    }
+
     public PostDto readSinglePost(Long id) {
         Post post = findPostById(id);
         return mapFromPostToDto(post);

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +10,15 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'blog-client';
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private localStorageService: LocalStorageService) {
     translateService.addLangs(['en', 'zh']);
-    const browserLang = (translateService.getBrowserLang().includes('zh')) ? 'zh' : 'en';
-    translateService.setDefaultLang(browserLang);
+    const savedLang = this.localStorageService.retrieve('language');
+    if (savedLang != null) {
+      translateService.setDefaultLang(savedLang);
+    } else {
+      const browserLang = (translateService.getBrowserLang().includes('zh')) ? 'zh' : 'en';
+      this.localStorageService.store('language', browserLang);
+      translateService.setDefaultLang(browserLang);
+    }
   }
 }

@@ -39,6 +39,12 @@ public class PostController {
         return new ResponseEntity<>(postDtos, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}/user")
+    public ResponseEntity<String> findUserByPost(@PathVariable @RequestBody Long id) {
+        String username = postsService.findUserByPost(id);
+        return new ResponseEntity<>(username, HttpStatus.OK);
+    }
+
     @PutMapping("/edit/{id}")
     public ResponseEntity<Boolean> editPost(@PathVariable @RequestBody Long id, @RequestBody PostDto postDto) {
         if(postsService.editPost(id, postDto)) {

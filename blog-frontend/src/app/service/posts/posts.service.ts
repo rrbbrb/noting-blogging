@@ -42,6 +42,10 @@ export class PostsService {
     return this.httpClient.get<Array<PostPayload>>(`${this.postsURL}user/${username}`);
   }
 
+  getUsernameByPost(id: number): Observable<string> {
+    return this.httpClient.get<string>(`${this.postsURL}${+id}/user`);
+  }
+
   deletePost(id: number): Observable<any> {
     return this.httpClient.delete(`${this.postsURL}delete/${+id}`);
   }
