@@ -88,7 +88,7 @@ svg {
 /* end of reset */
 
 html {
-  font-family: 'Noto Sans', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: MyCustomFonts, 'Noto Sans', 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   -ms-overflow-style: none;
 }
@@ -208,3 +208,8 @@ input[type="password"]:focus,
   box-shadow: none;
 }
 
+@font-face {
+  font-family: MyCustomFonts;
+  src: url(/assets/fonts/NotoSansTC-Regular.otf) format("opentype"), local('Microsoft JhengHei'), local(PingFang), local('LiHei Pro');
+  unicode-range: U+4E00-9FFF;
+}

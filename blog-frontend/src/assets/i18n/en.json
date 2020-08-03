@@ -7,7 +7,7 @@
         "log-in": "log in",
         "sign-up": "sign up",
         "noAccount": "don't have an account? ",
-        "alreadyAccount": "already have an account?" ,
+        "alreadyAccount": "already have an account? ",
         "invalid": "Invalid username or password",
         "usernameTaken": "This username is already taken",
         "signUpSuccess": "you have successfully signed up.",
