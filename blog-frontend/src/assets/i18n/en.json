@@ -32,7 +32,8 @@
         "cancel": "cancel",
         "confirmCancel": "Are you sure to cancel editing this post?",
         "zeroPosts": "hasn't posted anything yet",
-        "confirmDelete": "Are you sure to delete this post?"
+        "confirmDelete": "Are you sure to delete this post?",
+        "sitewideZeroPosts": "There aren't any posts yet"
     },
 
     "common": {

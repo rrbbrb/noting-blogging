@@ -32,7 +32,8 @@
         "cancel": "取消",
         "confirmCancel": "你確定要取消編輯嗎?",
         "zeroPosts": "還沒有發佈任何文章",
-        "confirmDelete": "你確定要刪除這篇文章嗎?"
+        "confirmDelete": "你確定要刪除這篇文章嗎?",
+        "sitewideZeroPosts": "還沒有任何文章"
     },
 
     "common": {

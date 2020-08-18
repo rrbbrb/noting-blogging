@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   posts: PostPayload[];
+  zeroPosts: boolean;
 
   constructor(private postsService: PostsService) { }
 
@@ -18,8 +19,10 @@ export class HomeComponent implements OnInit {
     this.postsService.getAllPosts().subscribe(data => {
       console.log("fetched " + data.length + " posts");
       this.posts = data;
+      if(this.posts.length == 0) {
+        this.zeroPosts = true;
+      }
     });
-
 
   }
 
