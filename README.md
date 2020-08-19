@@ -26,7 +26,7 @@ ng serve --open
 ```
 ## Features
 ### Database Schema
-![Database schema](https://user-images.githubusercontent.com/64576115/90620282-d35d9300-e244-11ea-997b-f3eb4d0155fd.png)
+![Database schema](https://github.com/rrbbrb/noting-blogging/blob/media/Database%20schema.png)
 
 ### Version 1.0
 - [x] Login and signup with JWT
@@ -42,4 +42,5 @@ ng serve --open
 - [ ] Cover photo for posts
 - [ ] Loading animations
 - [ ] Categorization / Tags
+- [ ] Pagination
 - [ ] Password reset
