@@ -26,7 +26,7 @@ ng serve --open
 ```
 ## Features
 ### Database Schema
-![Database schema](https://github.com/rrbbrb/noting-blogging/blob/media/Database%20schema.png)
+<img src="https://github.com/rrbbrb/noting-blogging/blob/media/Database%20schema.png" width="450" alt="Database Schema">
 
 ### Version 1.0
 - [x] Login and signup with JWT
